@@ -1,3 +1,6 @@
+#wieghted aggrigate rating -> cosine func
+#
+
 import numpy as np
 import pandas as pd
 import re
@@ -7,19 +10,24 @@ from nltk.tokenize import word_tokenize
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-data = pd.read_csv('zomato.csv', encoding ='latin1')
+data = pd.read_csv(r'C:\Users\Unex H\Desktop\Ai Project\GUI-based-Restaurant-Recommendation-System\zomato.csv', encoding ='latin1')
 
 
 
-
+#Remove NULL values from the City column.
 data['City'].value_counts(dropna = False)
 
-data_city =data.loc[data['City'] == 'New Delhi']
-
+#user selects City : Delhi as most Restaurants are here
+data_city =data.loc[data['City'] == 'New Delhi']#user-provided-data
+#Now get all the Restaurant Name, Cuisines, Locality, Aggregate rating in Delhi.
 data_new_delphi=data_city[['Restaurant Name','Cuisines','Locality','Aggregate rating']]
 
+#REMOVE Null values from 'Locality' column
 data_new_delphi['Locality'].value_counts(dropna = False).head(5)
+#print it and try if it does what it says
 
+#user selects it
+#selecting a locality in delhi, 
 data_new_delphi.loc[data['Locality'] == 'Connaught Place']
 
 data_sample=[]
@@ -79,20 +87,20 @@ def restaurant_recommend_func(location,title):
     ## ---Cosine Similarity--- ##()
     # Compute the cosine similarity matrix
     cosine_sim = linear_kernel(tfidf_matrix, tfidf_matrix)
-    print(cosine_sim)
+    #print(cosine_sim)
 
     # Column names are using for index
     corpus_index=[n for n in data_sample['Split']]
-    print(corpus_index)
+    #print(corpus_index)
 
     #Construct a reverse map of indices
     indices = pd.Series(data_sample.index, index=data_sample['Restaurant Name']).drop_duplicates()
-    print(indices)
+    #print(indices)
 
     #index of the restaurant matchs the cuisines
     idx = indices[title]
-    print(' ')
-    print(idx)
+    #print(' ')
+    #print(idx)
 
 
     #Aggregate rating added with cosine score in sim_score list.
@@ -107,10 +115,10 @@ def restaurant_recommend_func(location,title):
 
     # 5 similarty cuisines
     sim_scores = sim_scores[0:6]
-    print(sim_scores)
+    #print(sim_scores)
 
     rest_indices = [i[0] for i in sim_scores]
-    print(rest_indices)
+    #print(rest_indices)
 
     data_x =data_sample[['Restaurant Name','Cuisines','Aggregate rating']].iloc[rest_indices]
 
@@ -121,5 +129,5 @@ def restaurant_recommend_func(location,title):
     return data_x
 
 # Top 5 similar restaurant with cuisine of 'Barbeque Nation' restaurant in Connaught Place
-restaurant_recommend_func('Connaught Place','Pizza Hut')  ## location & Restaurant Name
+print(restaurant_recommend_func('Connaught Place','Pizza Hut'))  ## location & Restaurant Name
 

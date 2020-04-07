@@ -233,13 +233,13 @@ padding: 3px 3px 3px 3px;</string>
 </string>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; font-weight:600; color:#1b1b1b;&quot;&gt;Top &lt;/span&gt;&lt;span style=&quot; font-size:20pt; font-weight:600; color:#55aa00;&quot;&gt;Restaurants&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20pt; color:#1b1b1b;&quot;&gt;Top &lt;/span&gt;&lt;span style=&quot; font-size:20pt; color:#55aa00;&quot;&gt;Global Restaurants&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
     <widget class="QLabel" name="LRestaurantStar1">
      <property name="geometry">
       <rect>
-       <x>100</x>
+       <x>80</x>
        <y>130</y>
        <width>47</width>
        <height>13</height>
@@ -249,6 +249,9 @@ padding: 3px 3px 3px 3px;</string>
       <font>
        <family>Microsoft YaHei UI</family>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(85, 170, 0);</string>
      </property>
      <property name="text">
       <string>Stars</string>
@@ -257,7 +260,7 @@ padding: 3px 3px 3px 3px;</string>
     <widget class="QLabel" name="LRestaurantStar2">
      <property name="geometry">
       <rect>
-       <x>290</x>
+       <x>280</x>
        <y>130</y>
        <width>47</width>
        <height>13</height>
@@ -267,6 +270,9 @@ padding: 3px 3px 3px 3px;</string>
       <font>
        <family>Microsoft YaHei UI</family>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(85, 170, 0);</string>
      </property>
      <property name="text">
       <string>Stars</string>
@@ -286,6 +292,9 @@ padding: 3px 3px 3px 3px;</string>
        <family>Microsoft YaHei UI</family>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(85, 170, 0);</string>
+     </property>
      <property name="text">
       <string>Stars</string>
      </property>
@@ -293,7 +302,7 @@ padding: 3px 3px 3px 3px;</string>
     <widget class="QLabel" name="LRestaurantStar4">
      <property name="geometry">
       <rect>
-       <x>650</x>
+       <x>670</x>
        <y>130</y>
        <width>47</width>
        <height>13</height>
@@ -303,6 +312,9 @@ padding: 3px 3px 3px 3px;</string>
       <font>
        <family>Microsoft YaHei UI</family>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(85, 170, 0);</string>
      </property>
      <property name="text">
       <string>Stars</string>
@@ -311,7 +323,7 @@ padding: 3px 3px 3px 3px;</string>
     <widget class="QLabel" name="LRestaurantStar5">
      <property name="geometry">
       <rect>
-       <x>840</x>
+       <x>870</x>
        <y>130</y>
        <width>47</width>
        <height>13</height>
@@ -322,6 +334,9 @@ padding: 3px 3px 3px 3px;</string>
        <family>Microsoft YaHei UI</family>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(85, 170, 0);</string>
+     </property>
      <property name="text">
       <string>Stars</string>
      </property>
@@ -329,15 +344,15 @@ padding: 3px 3px 3px 3px;</string>
     <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
-       <x>50</x>
+       <x>10</x>
        <y>100</y>
-       <width>881</width>
-       <height>26</height>
+       <width>951</width>
+       <height>29</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <property name="spacing">
-       <number>50</number>
+       <number>40</number>
       </property>
       <property name="leftMargin">
        <number>0</number>
@@ -346,11 +361,20 @@ padding: 3px 3px 3px 3px;</string>
        <widget class="QPushButton" name="BRestaurant1">
         <property name="font">
          <font>
-          <family>Microsoft YaHei UI</family>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
+          <weight>9</weight>
+          <italic>false</italic>
+          <bold>false</bold>
          </font>
         </property>
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: transparent;
+color: rgb(141, 94, 0);
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
         </property>
         <property name="text">
          <string>Restaurant Name</string>
@@ -361,11 +385,20 @@ padding: 3px 3px 3px 3px;</string>
        <widget class="QPushButton" name="BRestaurant2">
         <property name="font">
          <font>
-          <family>Microsoft YaHei UI</family>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
+          <weight>9</weight>
+          <italic>false</italic>
+          <bold>false</bold>
          </font>
         </property>
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: transparent;
+color: rgb(141, 94, 0);
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
         </property>
         <property name="text">
          <string>Restaurant Name</string>
@@ -376,11 +409,20 @@ padding: 3px 3px 3px 3px;</string>
        <widget class="QPushButton" name="BRestaurant3">
         <property name="font">
          <font>
-          <family>Microsoft YaHei UI</family>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
+          <weight>9</weight>
+          <italic>false</italic>
+          <bold>false</bold>
          </font>
         </property>
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: transparent;
+color: rgb(141, 94, 0);
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
         </property>
         <property name="text">
          <string>Restaurant Name</string>
@@ -391,11 +433,20 @@ padding: 3px 3px 3px 3px;</string>
        <widget class="QPushButton" name="BRestaurant4">
         <property name="font">
          <font>
-          <family>Microsoft YaHei UI</family>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
+          <weight>9</weight>
+          <italic>false</italic>
+          <bold>false</bold>
          </font>
         </property>
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: transparent;
+color: rgb(141, 94, 0);
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
         </property>
         <property name="text">
          <string>Restaurant Name</string>
@@ -406,11 +457,20 @@ padding: 3px 3px 3px 3px;</string>
        <widget class="QPushButton" name="BRestaurant5">
         <property name="font">
          <font>
-          <family>Microsoft YaHei UI</family>
+          <family>MS Shell Dlg 2</family>
+          <pointsize>10</pointsize>
+          <weight>9</weight>
+          <italic>false</italic>
+          <bold>false</bold>
          </font>
         </property>
         <property name="cursor">
          <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: transparent;
+color: rgb(141, 94, 0);
+font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
         </property>
         <property name="text">
          <string>Restaurant Name</string>

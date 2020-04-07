@@ -114,7 +114,7 @@ def restaurant_recommend_func(location,title):
     sim_scores = sorted(sim_scores, key=lambda x: (x[1],x[2]) , reverse=True)
 
     # 5 similarty cuisines
-    sim_scores = sim_scores[0:6]
+    sim_scores = sim_scores[1:6]
     #print(sim_scores)
 
     rest_indices = [i[0] for i in sim_scores]
@@ -126,8 +126,14 @@ def restaurant_recommend_func(location,title):
     for i,j in enumerate(sim_scores):
         data_x['Cosine Similarity'].iloc[i]=round(sim_scores[i][1],2)
 
-    return data_x
+
+    return data_x.reset_index(drop=True)
 
 # Top 5 similar restaurant with cuisine of 'Barbeque Nation' restaurant in Connaught Place
-print(restaurant_recommend_func('Connaught Place','Pizza Hut'))  ## location & Restaurant Name
+#print(restaurant_recommend_func('Connaught Place','Pizza Hut'))  ## location & Restaurant Name
 
+tabledata = restaurant_recommend_func('Connaught Place','Pizza Hut')
+
+for i,r in tabledata.iterrows():
+    print(i)
+    print(r['Restaurant Name'],r['Cuisines'],r['Aggregate rating'],r['Cosine Similarity'])

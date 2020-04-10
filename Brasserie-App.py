@@ -16,6 +16,7 @@ searchIconLink = r'images\icons8-search-50(2).png'
 backGround2ImageLink= r'images\Sitting-near-table-darkened.jpg'
 backButtonImageLink =r'images\icons8-back-50.png'
 
+
 #a class to contain Restaurant Related Data
 class RestaurantData:
         #RestaurantData Attributes
@@ -25,14 +26,17 @@ class RestaurantData:
         DataFieldWhole = pd.read_csv(csvFileLink,encoding='latin')
         tempTopRestaurantDF = None
 
+        #Initializes TopRestuarantDf by calling ReturnTopFiveRestaurantName()
         def __init__(self):
             self.tempTopRestaurantDF = self.ReturnTopFiveRestaurantName()
 
+        #Returns City Name List from Database
         def ReturnCityName(self):
             CityData = list(self.DataFieldWhole['City'].unique())
             CityData.sort()
             return CityData
 
+        #Returns Locality Name List using currentCity from Database
         def ReturnLocalityName(self,currentCity):
             self.selectedCityName = str(currentCity)
             print("SelectedCityName : {}".format(self.selectedCityName))
@@ -41,6 +45,7 @@ class RestaurantData:
             localityData.sort()
             return localityData
 
+        #Returns Restaurant Name List using currentCity,currentLocality from Database
         def ReturnRestaurantName(self,currentCity,currentLocality):
             self.selectedCityName = str(currentCity)
             self.selectedLocalityName = str(currentLocality)
@@ -49,6 +54,7 @@ class RestaurantData:
             RestaurantData.sort()
             return RestaurantData
 
+        #Recommendation Function for Calculation of Cosine Similarity Score
         def RestaurantRecommendFunc(self,location,title):
             data_sample = self.data_new_delphi.loc[self.data_new_delphi['Locality'] == location] # data frame
 
@@ -115,6 +121,7 @@ class RestaurantData:
                 data_x['Cosine Similarity'].iloc[i]=round(sim_scores[i][1],2)
             return data_x.reset_index(drop=True)
 
+        #Returns a DataFrame of RestaurantRecommendFunc
         def ReturnDF(self):
             #Remove NULL values from the City column.
             self.DataFieldWhole['City'].value_counts(dropna = False)
@@ -134,6 +141,7 @@ class RestaurantData:
             data_sample=[]
             return self.RestaurantRecommendFunc(self.selectedLocalityName,self.selectedRestaurantName)
 
+        #Implements Top restaurant code
         def ReturnTopFiveRestaurantName(self):
             restaurantTopFive = self.DataFieldWhole.sort_values('Weighted Aggregate Rating',ascending=False)
             restaurantTopFive = restaurantTopFive[['City','Locality','Restaurant Name','Aggregate rating','Weighted Aggregate Rating']].head(5)
@@ -144,6 +152,8 @@ class RestaurantData:
 #a class to Create/Maintain Gui
 class Ui_MainWindow(object):
     Data = RestaurantData()
+
+    #Draws Main WindowFrame
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setGeometry(90,50,1180, 700)
@@ -155,6 +165,7 @@ class Ui_MainWindow(object):
         MainWindow.setStyleSheet("background-color: rgb(243, 243, 243);")
         self.drawFrontPage()
 
+    #Initializes Qt Widgets
     def drawFrontPage(self):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -390,6 +401,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+    #Implements Qt Widgets
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Brasserie"))
@@ -447,6 +459,7 @@ class Ui_MainWindow(object):
         self.BRestaurant4.clicked.connect(lambda : self.TopRestaurantNamesAction(3))
         self.BRestaurant5.clicked.connect(lambda : self.TopRestaurantNamesAction(4))
 
+    #Prints Bottom frame of Front Page
     def TopRestaurantNamesAction(self,BNum):
         for i in range(5):
             if(BNum == i):
@@ -455,19 +468,23 @@ class Ui_MainWindow(object):
                 self.Data.selectedRestaurantName = self.Data.tempTopRestaurantDF['Restaurant Name'].iloc[i]
         self.ClearScreen()
 
+    #Dynamic Dependent Drop Down list (For locality names)
     def UpdateLocalityName(self):
         self.cBlocality.clear()
         self.cBlocality.addItems(self.Data.ReturnLocalityName(self.cBCity.currentText()))
 
+    #Dynamic Dependent Drop Down list (For restaurant names)
     def UpdateRestaurantName(self):
         self.cBRestaurant.clear()
         self.cBRestaurant.addItems(self.Data.ReturnRestaurantName(self.cBCity.currentText(),self.cBlocality.currentText()))
 
+    #Search Button implementation
     def ShowResults(self):
         self.Data.selectedRestaurantName = str(self.cBRestaurant.currentText())
         print("Search button Triggered...\nPrinting results...\n")
         self.CheckValues()
 
+    #Verifying Values
     def CheckValues(self):
         print("In CheckValues()...")
         print("City : ",self.Data.selectedCityName)
@@ -502,6 +519,7 @@ class Ui_MainWindow(object):
             print("Safe To enter")
             self.ClearScreen()
 
+    #Clearing and Initializing Result Window Qt Widgets
     def ClearScreen(self):
         print("Resetting All widgets")
         self.centralWidget2 = QtWidgets.QWidget(MainWindow)
@@ -669,6 +687,7 @@ class Ui_MainWindow(object):
         self.retranslateNextUi(self.centralWidget2)
         QtCore.QMetaObject.connectSlotsByName(self.centralWidget2)
 
+    #Implements Result Window Qt Widgets
     def retranslateNextUi(self, centralWidget2):
         _translate = QtCore.QCoreApplication.translate
         self.centralWidget2.setWindowTitle(_translate("centralWidget2", "Form"))
@@ -732,6 +751,7 @@ class Ui_MainWindow(object):
             msgbox.buttonClicked.connect(self.nextUiPopup)
             x = msgbox.exec_()
 
+    #Handles Pop Dialog for failure
     def nextUiPopup(self,i):
         print(i.text())
         if(i.text() == 'Retry'):
@@ -742,7 +762,7 @@ class Ui_MainWindow(object):
 
 #main driver
 if __name__ == "__main__":
-    import sys
+    import sys#remove
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()

@@ -132,7 +132,7 @@ def restaurant_recommend_func(location,title):
 # Top 5 similar restaurant with cuisine of 'Barbeque Nation' restaurant in Connaught Place
 #print(restaurant_recommend_func('Connaught Place','Pizza Hut'))  ## location & Restaurant Name
 
-tabledata = restaurant_recommend_func('Connaught Place','Pizza Hut')
+tabledata = restaurant_recommend_func('Connaught Place','Star ')
 
 for i,r in tabledata.iterrows():
     print(i)

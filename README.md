@@ -1,6 +1,6 @@
 # Brasserie-App
 
-This project implements a Restaurant Recommendation System using AI.\the search algorithm used here is a __content-based-filtering__ technique. Which takes city, locality and restaurant name and generates a similarity score index. The search results would then be shown based on generated similarity score index .
+This project implements a Restaurant Recommendation System using AI./the search algorithm used here is a __content-based-filtering__ technique. Which takes city, locality and restaurant name and generates a similarity score index. The search results would then be shown based on generated similarity score index .
 
 ## Getting Started
 

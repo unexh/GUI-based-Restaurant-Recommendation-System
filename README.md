@@ -1,7 +1,6 @@
-# GUI based Restaurant Recommendation System
+# Brasserie-App
 
-This project implements a Restaurant Recommendation System with Gui, Here search algorithm is using a content-based-filtering technique.
-In which user can select City, Locality and Restaurant Name using Combo boxes and the sreach result would be shown in a table-based layout. Moreover, user can opt for the Top Indian Recommendation.
+This project implements a Restaurant Recommendation System using AI.\the search algorithm used here is a __content-based-filtering__ technique. Which takes city, locality and restaurant name and generates a similarity score index. the search results would then be shown based on generated similarity score index .
 
 ## Getting Started
 
@@ -9,11 +8,11 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+What things (libraries) you need to run the program and how to install them
 
 ```
 1. PyQt5
-2. nltk
+2. NLTK
 3. pandas
 5. sklearn
 5. numpy
@@ -23,7 +22,7 @@ What things you need to install the software and how to install them
 
 A step by step series of commands that will help your development env running.
 
-Use Python3.7 :
+Use Python 3.7 :
 
 ```
 pip install pyqt5
@@ -50,15 +49,20 @@ Just open your terminal, head to cloned directory, do:
 python Brasserie-App.py
 ```
 
-Note: /python must be added to your system's Global path
+Note: __/python__ must be added to your system's Global path
 
-### Break down into end to end tests
+### Using Brasserie App
 
-Explain what these tests test and why
+To get a recommendation from the app, user can follow two pathways:
 
 ```
-Give an example
+1. By Entering Restaurant Details (like city, locality and restaurant name).
+2. By Selecting one of the Top Recommended Restaurant.
 ```
+
+After filling the details above specified, user will be given its recommendation by searching and generating a
+similarity score index and top five recommendations will be shown.
+
 
 ## Built With
 
@@ -67,6 +71,7 @@ Give an example
 ## Authors
 
 * **Nishant Pandey** - *Initial work* - [unexh](https://github.com/unexh)
+* **Sehajbir Thind** - *Initial work* - [SehajbirThind](https://github.com/SehajbirThind)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 

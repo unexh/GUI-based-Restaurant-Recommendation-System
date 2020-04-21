@@ -9,7 +9,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things (libraries) you need to run the program and how to install them
+What libraries you need to run the program and how to install them
 
 ```
 1. PyQt5
@@ -74,7 +74,7 @@ similarity score index and top five recommendations will be shown.
 * **Nishant Pandey** - *Initial work* - [unexh](https://github.com/unexh)
 * **Sehajbir Thind** - *Initial work* - [SehajbirThind](https://github.com/SehajbirThind)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/unexh/project/contributors) who participated in this project.
 
 ## Acknowledgments
 

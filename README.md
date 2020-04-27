@@ -72,7 +72,6 @@ similarity score index and top five recommendations will be shown.
 ## Authors
 
 * **Nishant Pandey** - *Initial work* - [unexh](https://github.com/unexh)
-* **Sehajbir Thind** - *Initial work* - [SehajbirThind](https://github.com/SehajbirThind)
 
 See also the list of [contributors](https://github.com/unexh/project/contributors) who participated in this project.
 

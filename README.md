@@ -3,6 +3,8 @@
 This project implements a Restaurant Recommendation System using AI.
 The search algorithm used here is a __content-based-filtering__ technique. Which takes city, locality and restaurant name and generates a similarity score index. The search results would then be shown based on generated similarity score index .
 
+![Image of Brasserie](https://octodex.github.com/images/yaktocat.png)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
